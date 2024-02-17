@@ -1,6 +1,6 @@
 package uz.pdp.eufloria.domain.enums;
 
 public enum Status {
-    ACTIVE,
-    NON_ACTIVE
+    INACTIVE,
+    NO_ACTIVE
 }
