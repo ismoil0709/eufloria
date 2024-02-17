@@ -9,5 +9,4 @@ public class EufloriaApplication {
     public static void main(String[] args) {
         SpringApplication.run(EufloriaApplication.class, args);
     }
-
 }

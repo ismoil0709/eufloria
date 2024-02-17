@@ -1,1 +1,7 @@
+spring:
+  application:
+    name: eufloria
 
+  liquibase:
+    change-log: db/changelog/master-changelog.xml
+    enabled: true
