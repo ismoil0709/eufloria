@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="3" author="ismoil_0709">
+        <createTable tableName="product">
+            <column name="id" type="bigserial"/>
+            <column name="name" type="varchar"/>
+            <column name="description" type="varchar"/>
+            <column name="available" type="boolean"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
