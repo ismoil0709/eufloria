@@ -1,11 +1,6 @@
 package uz.pdp.eufloria.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -32,11 +27,11 @@ public class User {
     private String email;
     private String password;
     private String phoneNumber;
-    private Status status;
+    private boolean status;
     @OneToMany
     private List<Address> address;
     @OneToMany
     private List<Orders> orders;
-    @OneToMany
+    @OneToOne
     private Basket basket;
 }
