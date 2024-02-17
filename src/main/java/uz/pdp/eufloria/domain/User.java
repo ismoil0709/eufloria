@@ -7,8 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import uz.pdp.eufloria.domain.enums.Status;
-
 import java.util.List;
 
 @Entity
