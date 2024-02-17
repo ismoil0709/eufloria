@@ -29,7 +29,7 @@ public class User {
     @OneToMany
     private List<Address> address;
     @OneToMany
-    private List<Orders> orders;
+    private List<Order> orders;
     @OneToOne
     private Basket basket;
 }
