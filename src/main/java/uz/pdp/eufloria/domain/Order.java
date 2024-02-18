@@ -1,16 +1,14 @@
 package uz.pdp.eufloria.domain;
 
-import com.fasterxml.jackson.databind.annotation.EnumNaming;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import uz.pdp.eufloria.enam.OrderType;
+import uz.pdp.eufloria.enums.OrderType;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
 @Entity
 @Getter
