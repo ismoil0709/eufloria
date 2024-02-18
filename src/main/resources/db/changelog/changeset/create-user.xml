@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="3" author="eeslambec">
+        <createTable tableName="users">
+            <column name="id" type="bigserial"/>
+            <column name="username" type="varchar"/>
+            <column name="email" type="varchar"/>
+            <column name="password" type="varchar"/>
+            <column name="phone_number" type="varchar"/>
+            <column name="status" type="boolean"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
