@@ -64,8 +64,8 @@ public class StoreServiceImpl implements StoreService {
         if (id == null)
             throw new NullOrEmptyException("Store id");
 
-        storeRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Store"));
+        if (!storeRepository.existsById(id))
+            throw new NotFoundException("Store");
 
         storeRepository.deleteById(id);
     }
