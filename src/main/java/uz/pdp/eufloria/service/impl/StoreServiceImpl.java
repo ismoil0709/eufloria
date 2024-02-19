@@ -6,7 +6,6 @@ import uz.pdp.eufloria.domain.Store;
 import uz.pdp.eufloria.dto.StoreDto;
 import uz.pdp.eufloria.exception.AlreadyExistsException;
 import uz.pdp.eufloria.exception.NotFoundException;
-import uz.pdp.eufloria.exception.NullOrEmptyException;
 import uz.pdp.eufloria.repository.StoreRepository;
 import uz.pdp.eufloria.service.StoreService;
 import uz.pdp.eufloria.util.Validator;
@@ -21,14 +20,6 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public StoreDto save(StoreDto storeDto) {
-        if (storeDto == null)
-            throw new NotFoundException("Store");
-        if (Validator.isNullOrEmpty(storeDto.getName()))
-            throw new NullOrEmptyException("Store name");
-        if (storeDto.getOpens() == null)
-            throw new NullOrEmptyException("Store opens");
-        if (storeDto.getCloses() == null)
-            throw new NullOrEmptyException("Store closes");
         if (storeDto.getId() != null) {
             if (storeRepository.findById(storeDto.getId()).isPresent())
                 throw new AlreadyExistsException("Store id");
@@ -41,11 +32,6 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public StoreDto update(StoreDto storeDto) {
-        if (storeDto == null)
-            throw new NotFoundException("Store");
-        if (storeDto.getId() == null)
-            throw new NullOrEmptyException("Store id");
-
         Store existingStore = storeRepository.findById(storeDto.getId())
                 .orElseThrow(() -> new NotFoundException("Store"));
 
@@ -61,9 +47,6 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public void delete(Long id) {
-        if (id == null)
-            throw new NullOrEmptyException("Store id");
-
         if (!storeRepository.existsById(id))
             throw new NotFoundException("Store");
 
@@ -72,9 +55,6 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public StoreDto getById(Long id) {
-        if (id == null)
-            throw new NullOrEmptyException("Store id");
-
         Store store = storeRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Store"));
 
@@ -83,9 +63,6 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public StoreDto getByName(String name) {
-        if (name == null)
-            throw new NullOrEmptyException("Store name");
-
         Store store = storeRepository.findByName(name)
                 .orElseThrow(() -> new NotFoundException("Store"));
 
@@ -99,17 +76,11 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public List<StoreDto> getAllByOpens(LocalTime opens) {
-        if (opens == null)
-            throw new NullOrEmptyException("Opens time");
-
         return storeRepository.findAllByOpens(opens).stream().map(StoreDto::new).toList();
     }
 
     @Override
     public List<StoreDto> getAllByCloses(LocalTime closes) {
-        if (closes == null)
-            throw new NullOrEmptyException("Closes time");
-
         return storeRepository.findAllByCloses(closes).stream().map(StoreDto::new).toList();
     }
 
