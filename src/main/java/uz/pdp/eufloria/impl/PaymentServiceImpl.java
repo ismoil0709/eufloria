@@ -1,4 +1,4 @@
-package uz.pdp.eufloria.service.impl;
+package uz.pdp.eufloria.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -32,15 +32,7 @@ public class PaymentServiceImpl implements PaymentService {
                 .order(order)
                 .build());
 
-        return new PaymentDto(
-                payment.getId(),
-                payment.getCard(),
-                payment.getAmount(),
-                new PaymentDto.NestedOrderDto(
-                        payment.getOrder().getId(),
-                        payment.getOrder().getDate(),
-                        payment.getOrder().getTime())
-        );
+        return new PaymentDto(payment);
     }
 
     @Override
