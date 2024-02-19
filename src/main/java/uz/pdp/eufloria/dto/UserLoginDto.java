@@ -1,11 +1,20 @@
 package uz.pdp.eufloria.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
 public class UserLoginDto {
+    @NotNull
+    @NotBlank
+    @NotEmpty
     private String username;
+    @NotNull
+    @NotBlank
+    @NotEmpty
     private String password;
 }

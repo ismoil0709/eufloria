@@ -1,15 +1,12 @@
 package uz.pdp.eufloria.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import uz.pdp.eufloria.domain.User;
 import uz.pdp.eufloria.dto.UserLoginDto;
 import uz.pdp.eufloria.dto.UserRegisterDto;
 import uz.pdp.eufloria.dto.UserUpdateDto;
-import uz.pdp.eufloria.exception.AlreadyExistsException;
 import uz.pdp.eufloria.exception.InvalidArgumentException;
 import uz.pdp.eufloria.exception.NotFoundException;
 import uz.pdp.eufloria.exception.NullOrEmptyException;
@@ -18,7 +15,6 @@ import uz.pdp.eufloria.service.UserService;
 import uz.pdp.eufloria.util.Validator;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -28,16 +24,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User register(UserRegisterDto userRegisterDto) {
-        if (Validator.isNullOrEmpty(userRegisterDto.getUsername()))
-            throw new NullOrEmptyException("username");
-        if (Validator.isNullOrEmpty(userRegisterDto.getPassword()))
-            throw new NullOrEmptyException("password");
-        if (Validator.isNullOrEmpty(userRegisterDto.getEmail()))
-            throw new NullOrEmptyException("email");
-        if (userRepository.findByUsername(userRegisterDto.getUsername()).isPresent())
-            throw new AlreadyExistsException("Username");
-        if (userRepository.findByEmail(userRegisterDto.getEmail()).isPresent())
-            throw new AlreadyExistsException("Email");
         return userRepository.save(User.builder()
                         .username(userRegisterDto.getUsername())
                         .password(passwordEncoder.encode(userRegisterDto.getPassword()))
