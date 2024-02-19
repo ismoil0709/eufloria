@@ -16,12 +16,12 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class PaymentSaveDto {
 
-    @Pattern(regexp = "\\d{4}\\s\\d{4}\\s\\d{4}\\s\\d{4}", message = "Invalid card Number")
-    @NotNull(message = "Card is Null")
-    @NotEmpty(message = "Card is empty")
+    @Pattern(regexp = "\\d{4}\\s\\d{4}\\s\\d{4}\\s\\d{4}")
+    @NotNull
+    @NotEmpty
     private String card;
-    @NotEmpty(message = "Amount is empty")
+    @NotEmpty
     private BigDecimal amount;
-    @NotNull(message = "OrderId is null")
+    @NotNull
     private Long orderId;
 }
