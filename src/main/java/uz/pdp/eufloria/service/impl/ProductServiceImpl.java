@@ -14,7 +14,6 @@ import uz.pdp.eufloria.repository.ProductRepository;
 import uz.pdp.eufloria.service.ProductService;
 import uz.pdp.eufloria.util.Validator;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,11 +24,7 @@ public class ProductServiceImpl implements ProductService {
     private final CategoryRepository categoryRepository;
     @Override
     public ProductDto save(ProductCreateDto productCreateDto) {
-        if (Validator.isNullOrEmpty(productCreateDto.getName()))
-            throw new NullOrEmptyException("Product name");
-        if (Validator.isNullOrEmpty(productCreateDto.getDescription()))
-            throw new NullOrEmptyException("Product description");
-        if (productCreateDto.getCategories() == null || productCreateDto.getCategories().isEmpty())
+        if (productCreateDto.getCategories().isEmpty())
             throw new NullOrEmptyException("Product categories");
         return new ProductDto(productRepository.save(Product.builder()
                         .name(productCreateDto.getName())
@@ -58,8 +53,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void delete(Long id) {
-        if (id == null)
-            throw new NullOrEmptyException("Product id");
         if (!productRepository.existsById(id))
             throw new NotFoundException("Product");
         productRepository.deleteById(id);
@@ -67,8 +60,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDto getById(Long id) {
-        if (id == null)
-            throw new NullOrEmptyException("Product id");
         return new ProductDto(productRepository.findById(id).orElseThrow(
                 ()->new NotFoundException("Product")
         ));
@@ -81,15 +72,11 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductDto> getAllByAvailable(Boolean available) {
-        if (available == null)
-            throw new NullOrEmptyException("Available");
         return productRepository.findAllByAvailable(available).stream().map(ProductDto::new).toList();
     }
 
     @Override
     public List<ProductDto> getAllByCategory(String... category) {
-        if (category == null)
-            throw new NullOrEmptyException("Category");
         List<String> categories = Arrays.stream(category).toList();
         List<Category> list = categories.stream().map(c -> categoryRepository.findByName(c).orElseThrow(
                 () -> new NotFoundException("Category")

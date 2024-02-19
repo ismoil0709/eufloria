@@ -19,10 +19,6 @@ public class PictureServiceImpl implements PictureService {
 
     @Override
     public void save(AddPictureDto pictureCreateDto) {
-        if (pictureCreateDto.getFile() == null)
-            throw new NullOrEmptyException("File");
-        if (pictureCreateDto.getProductId() == null)
-            throw new NullOrEmptyException("Product id");
         Product product = productRepository.findById(pictureCreateDto.getProductId()).orElseThrow(
                 () -> new NotFoundException("Product")
         );
@@ -32,10 +28,6 @@ public class PictureServiceImpl implements PictureService {
 
     @Override
     public void delete(PictureDeleteDto pictureDeleteDto) {
-        if (pictureDeleteDto.getProductId() == null)
-            throw new NullOrEmptyException("Product id");
-        if (Validator.isNullOrEmpty(pictureDeleteDto.getUrl()))
-            throw new NullOrEmptyException("Url");
         Product product = productRepository.findById(pictureDeleteDto.getProductId()).orElseThrow(
                 () -> new NotFoundException("Product")
         );

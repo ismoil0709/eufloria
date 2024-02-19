@@ -23,8 +23,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryDto save(CategoryDto categoryDto) {
-        if (Validator.isNullOrEmpty(categoryDto.getName()))
-            throw new NullOrEmptyException("Category name");
         if (categoryRepository.findByName(categoryDto.getName()).isPresent())
             throw new AlreadyExistsException("Category");
         return new CategoryDto(categoryRepository.save(new Category(null, categoryDto.getName())));
@@ -32,8 +30,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void delete(Long id) {
-        if (id == null)
-            throw new NullOrEmptyException("Product id");
         if (!categoryRepository.existsById(id))
             throw new NotFoundException("Category");
         categoryRepository.deleteById(id);
@@ -41,8 +37,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryDto getById(Long id) {
-        if (id == null)
-            throw new NullOrEmptyException("Product id");
         return new CategoryDto(categoryRepository.findById(id).orElseThrow(
                 () -> new NotFoundException("Product")
         ));
@@ -55,8 +49,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryDto getByName(String name) {
-        if (Validator.isNullOrEmpty(name))
-            throw new NullOrEmptyException("Category name");
         return new CategoryDto(categoryRepository.findByName(name).orElseThrow(
                 ()->new NotFoundException("Category")
         ));
@@ -64,10 +56,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void addCategoryToProduct(String category, Long productId) {
-        if (Validator.isNullOrEmpty(category))
-            throw new NullOrEmptyException("Category");
-        if (productId == null)
-            throw new NullOrEmptyException("Product id");
         Product product = productRepository.findById(productId).orElseThrow(
                 () -> new NotFoundException("Product")
         );
@@ -79,10 +67,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void removeCategoryFromProduct(String category, Long productId) {
-        if (Validator.isNullOrEmpty(category))
-            throw new NullOrEmptyException("Category");
-        if (productId == null)
-            throw new NullOrEmptyException("Product id");
         Product product = productRepository.findById(productId).orElseThrow(
                 () -> new NotFoundException("Product")
         );
