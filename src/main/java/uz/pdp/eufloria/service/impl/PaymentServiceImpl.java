@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import uz.pdp.eufloria.domain.Order;
 import uz.pdp.eufloria.domain.Payment;
+import uz.pdp.eufloria.dto.request.PaymentSaveDto;
+import uz.pdp.eufloria.dto.response.PaymentDto;
 import uz.pdp.eufloria.dto.response.PaymentDto;
 import uz.pdp.eufloria.dto.request.PaymentSaveDto;
 import uz.pdp.eufloria.exception.NotFoundException;
@@ -43,5 +45,36 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public List<PaymentDto> getAllPaymentsByCard(String card) {
-        return paymentRepository.getPaymentsByCard(card).stream().map(PaymentDto::new).toList();
+        return paymentRepository.findAllByCard(card).stream().map(PaymentDto::new).toList();
     }
+
+    @Override
+    public PaymentDto getById(Long id) {
+        if(id == null) {
+            throw new NullOrEmptyException("id");
+        }
+        return new PaymentDto(paymentRepository.findById(id).orElseThrow(
+                () -> new NotFoundException("Payment")
+        ));
+    }
+
+    @Override
+    public PaymentDto getByOrder(Long id) {
+        if (id == null) {
+            throw new NullOrEmptyException("Id");
+        }
+        return new PaymentDto(paymentRepository.findByOrder(id).orElseThrow(
+                () -> new NotFoundException("Payment")
+        ));
+    }
+
+    @Override
+    public boolean delete(Long id) {
+        Optional<Payment> payment = paymentRepository.findById(id);
+        if (payment.isPresent()) {
+            paymentRepository.delete(payment.get());
+            return true;
+        }
+        return false;
+    }
+}
