@@ -1,5 +1,4 @@
-
-package uz.pdp.eufloria.impl;
+package uz.pdp.eufloria.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
