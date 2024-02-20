@@ -1,3 +1,4 @@
+
 package uz.pdp.eufloria.impl;
 
 import lombok.RequiredArgsConstructor;
@@ -45,24 +46,3 @@ public class PaymentServiceImpl implements PaymentService {
     public List<PaymentDto> getAllPaymentsByCard(String card) {
         return paymentRepository.getPaymentsByCard(card).stream().map(PaymentDto::new).toList();
     }
-
-    @Override
-    public PaymentDto getById(Long id) {
-        if(id == null) {
-            throw new NullOrEmptyException("id");
-        }
-        return new PaymentDto(paymentRepository.findById(id).orElseThrow(
-                () -> new NotFoundException("Payment")
-        ));
-    }
-
-    @Override
-    public boolean delete(Long id) {
-        Optional<Payment> payment = paymentRepository.findById(id);
-        if (payment.isPresent()) {
-            paymentRepository.delete(payment.get());
-            return true;
-        }
-        return false;
-    }
-}
