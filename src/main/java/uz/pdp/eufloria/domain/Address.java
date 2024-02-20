@@ -4,11 +4,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,8 +26,8 @@ public class Address {
     private String district;
     private String street;
     private String home;
-    @OneToOne
-    private User user;
-    private String lon;
-    private String lan;
+    @ManyToMany
+    private List<User> user;
+    private Double lon;
+    private Double lat;
 }

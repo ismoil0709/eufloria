@@ -1,7 +1,7 @@
 package uz.pdp.eufloria.service;
 
 import org.springframework.stereotype.Service;
-import uz.pdp.eufloria.dto.StoreDto;
+import uz.pdp.eufloria.dto.response.StoreDto;
 
 import java.time.LocalTime;
 import java.util.List;

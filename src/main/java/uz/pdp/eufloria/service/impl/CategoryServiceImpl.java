@@ -7,11 +7,9 @@ import uz.pdp.eufloria.domain.Product;
 import uz.pdp.eufloria.dto.response.CategoryDto;
 import uz.pdp.eufloria.exception.AlreadyExistsException;
 import uz.pdp.eufloria.exception.NotFoundException;
-import uz.pdp.eufloria.exception.NullOrEmptyException;
 import uz.pdp.eufloria.repository.CategoryRepository;
 import uz.pdp.eufloria.repository.ProductRepository;
 import uz.pdp.eufloria.service.CategoryService;
-import uz.pdp.eufloria.util.Validator;
 
 import java.util.List;
 

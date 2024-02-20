@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -27,8 +28,8 @@ public class Store {
     private String name;
     private LocalTime opens;
     private LocalTime closes;
-//    @OneToOne
-//    private Address address;
+    @OneToOne
+    private Address address;
     @OneToMany
     private List<Product> products;
 }

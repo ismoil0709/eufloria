@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="7" author="eeslambec">
+        <sql>
+            CREATE TABLE users(
+                id SERIAL PRIMARY KEY ,
+                username VARCHAR,
+                email VARCHAR,
+                password VARCHAR,
+                phone_number VARCHAR,
+                status BOOLEAN,
+                basket_id BIGINT
+            );
+        </sql>
+        <sql>
+            CREATE TABLE user_orders(
+                user_id BIGINT REFERENCES user(id),
+                order_id BIGINT REFERENCES order(id)
+            );
+        </sql>
+        <sql>
+            CREATE TABLE user_addresses
+            (
+                user_id    BIGINT REFERENCES user (id),
+                address_id BIGINT REFERENCES address (id)
+            );
+        </sql>
+    </changeSet>
+</databaseChangeLog>

@@ -3,7 +3,7 @@ package uz.pdp.eufloria.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import uz.pdp.eufloria.domain.Store;
-import uz.pdp.eufloria.dto.StoreDto;
+import uz.pdp.eufloria.dto.response.StoreDto;
 import uz.pdp.eufloria.exception.AlreadyExistsException;
 import uz.pdp.eufloria.exception.NotFoundException;
 import uz.pdp.eufloria.repository.StoreRepository;

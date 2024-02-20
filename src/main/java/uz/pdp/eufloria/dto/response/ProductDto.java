@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import uz.pdp.eufloria.domain.Picture;
 import uz.pdp.eufloria.domain.Product;
-import uz.pdp.eufloria.dto.response.CategoryDto;
 
 import java.util.List;
 

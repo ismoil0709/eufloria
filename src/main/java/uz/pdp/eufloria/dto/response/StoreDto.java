@@ -1,4 +1,4 @@
-package uz.pdp.eufloria.dto;
+package uz.pdp.eufloria.dto.response;
 
 import com.nimbusds.openid.connect.sdk.claims.Address;
 import jakarta.persistence.OneToMany;
@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 import uz.pdp.eufloria.domain.Store;
 
 import java.time.LocalTime;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor

@@ -7,10 +7,8 @@ import uz.pdp.eufloria.domain.Product;
 import uz.pdp.eufloria.dto.request.AddPictureDto;
 import uz.pdp.eufloria.dto.request.PictureDeleteDto;
 import uz.pdp.eufloria.exception.NotFoundException;
-import uz.pdp.eufloria.exception.NullOrEmptyException;
 import uz.pdp.eufloria.repository.ProductRepository;
 import uz.pdp.eufloria.service.PictureService;
-import uz.pdp.eufloria.util.Validator;
 
 @Service
 @RequiredArgsConstructor

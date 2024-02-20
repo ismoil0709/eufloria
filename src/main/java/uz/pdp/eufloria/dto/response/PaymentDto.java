@@ -1,4 +1,4 @@
-package uz.pdp.eufloria.dto.paymentDtos;
+package uz.pdp.eufloria.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

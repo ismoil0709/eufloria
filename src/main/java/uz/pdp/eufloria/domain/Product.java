@@ -13,7 +13,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import uz.pdp.eufloria.dto.request.ProductCreateDto;
 
 import java.util.List;
 

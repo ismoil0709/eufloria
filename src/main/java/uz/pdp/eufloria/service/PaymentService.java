@@ -1,8 +1,8 @@
 package uz.pdp.eufloria.service;
 
 import org.springframework.stereotype.Service;
-import uz.pdp.eufloria.dto.paymentDtos.PaymentDto;
-import uz.pdp.eufloria.dto.paymentDtos.PaymentSaveDto;
+import uz.pdp.eufloria.dto.response.PaymentDto;
+import uz.pdp.eufloria.dto.request.PaymentSaveDto;
 
 import java.util.List;
 
