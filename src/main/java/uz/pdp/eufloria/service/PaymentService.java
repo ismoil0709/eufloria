@@ -16,5 +16,7 @@ public interface PaymentService {
 
     PaymentDto getById(Long id);
 
+    PaymentDto getByOrder(Long id);
+
     boolean delete(Long id);
 }
