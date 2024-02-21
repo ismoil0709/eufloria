@@ -22,7 +22,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "orders")
-public class Order {
+public class Order extends Auditing{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

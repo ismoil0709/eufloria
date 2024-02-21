@@ -25,7 +25,7 @@ import java.util.List;
 @Builder
 @ToString
 @Table(name = "users")
-public class User {
+public class User extends Auditing{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
