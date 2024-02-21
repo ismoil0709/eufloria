@@ -2,7 +2,6 @@ package uz.pdp.eufloria.controller;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -45,29 +44,13 @@ public class CategoryController {
     }
 
     @PutMapping("/add/{category}/{productId}")
-    public ResponseEntity<?> addCategoryToProduct(
-            @PathVariable
-            @NotNull
-            @NotEmpty
-            @NotBlank
-            String category,
-            @PathVariable
-            @NotNull
-            Long productId) {
+    public ResponseEntity<?> addCategoryToProduct(@PathVariable @NotBlank String category, @PathVariable @NotNull Long productId) {
         categoryService.addCategoryToProduct(category, productId);
         return ResponseEntity.ok(Map.of("message", "Category successfully added to product"));
     }
 
     @DeleteMapping("/remove/{category}/{productId}")
-    public ResponseEntity<?> removeCategoryFromProduct(
-            @PathVariable
-            @NotNull
-            @NotEmpty
-            @NotBlank
-            String category,
-            @PathVariable
-            @NotNull
-            Long productId) {
+    public ResponseEntity<?> removeCategoryFromProduct(@PathVariable @NotBlank String category, @PathVariable @NotNull Long productId) {
         categoryService.removeCategoryFromProduct(category, productId);
         return ResponseEntity.ok(Map.of("message", "Category successfully added to product"));
     }
