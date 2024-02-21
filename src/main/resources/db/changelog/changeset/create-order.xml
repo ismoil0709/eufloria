@@ -14,7 +14,11 @@
                 date          DATE,
                 time          TIME,
                 order_type    VARCHAR(255),
-                shipping_cost DOUBLE PRECISION
+                shipping_cost DOUBLE PRECISION,
+                created_date TIMESTAMP,
+                last_modified_date TIMESTAMP,
+                created_by VARCHAR,
+                last_modified_by VARCHAR
             );
         </sql>
     </changeSet>

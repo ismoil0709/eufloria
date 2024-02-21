@@ -15,7 +15,11 @@
                 street   VARCHAR,
                 home     VARCHAR,
                 lon      DOUBLE PRECISION,
-                lat      DOUBLE PRECISION
+                lat      DOUBLE PRECISION,
+                created_date TIMESTAMP,
+                last_modified_date TIMESTAMP,
+                created_by VARCHAR,
+                last_modified_by VARCHAR
             );
         </sql>
     </changeSet>

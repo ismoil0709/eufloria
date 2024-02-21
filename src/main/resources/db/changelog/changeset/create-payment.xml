@@ -12,7 +12,11 @@
                 id     SERIAL PRIMARY KEY,
                 card   VARCHAR,
                 amount DOUBLE PRECISION,
-                order_id BIGINT
+                order_id BIGINT,
+                created_date TIMESTAMP,
+                last_modified_date TIMESTAMP,
+                created_by VARCHAR,
+                last_modified_by VARCHAR
             );
         </sql>
     </changeSet>

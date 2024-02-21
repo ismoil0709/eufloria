@@ -9,7 +9,11 @@
         <sql>
             CREATE TABLE picture(
                 id SERIAL PRIMARY KEY ,
-                image_url VARCHAR
+                image_url VARCHAR,
+                created_date TIMESTAMP,
+                last_modified_date TIMESTAMP,
+                created_by VARCHAR,
+                last_modified_by VARCHAR
             );
         </sql>
     </changeSet>
