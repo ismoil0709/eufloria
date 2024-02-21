@@ -5,13 +5,21 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd"
         objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
-    <changeSet id="2" author="behzod">
-        <createTable tableName="store">
-            <column name="id" type="bigserial"/>
-            <column name="name" type="varchar"/>
-            <column name="opens" type="time"/>
-            <column name="closes" type="time"/>
-            <column name="address_id" type="bigint"/>
-        </createTable>
+    <changeSet id="6" author="behzod">
+        <sql>
+            CREATE TABLE store(
+                id SERIAL PRIMARY KEY ,
+                name VARCHAR,
+                opens TIMESTAMP,
+                closes TIMESTAMP,
+                address_id BIGINT,
+            );
+        </sql>
+        <sql>
+            CREATE TABLE store_products(
+                store_id BIGINT REFERENCES store(id),
+                product_id BIGINT REFERENCES product(id)
+            );
+        </sql>
     </changeSet>
 </databaseChangeLog>
