@@ -22,7 +22,7 @@ import java.math.BigDecimal;
 @Builder
 @Entity
 @Table(name = "payment")
-public class Payment {
+public class Payment extends Auditing{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

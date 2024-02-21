@@ -14,7 +14,7 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @Builder
 @Table(name = "orders")
-public class Order {
+public class Order extends Auditing{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
