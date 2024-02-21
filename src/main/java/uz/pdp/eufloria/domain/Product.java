@@ -23,7 +23,7 @@ import java.util.List;
 @ToString
 @Builder
 @Entity
-public class Product {
+public class Product extends Auditing{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
