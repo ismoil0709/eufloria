@@ -6,5 +6,4 @@ import uz.pdp.eufloria.domain.Address;
 
 @Repository
 public interface AddressRepository extends JpaRepository<Address, Long> {
-
 }
