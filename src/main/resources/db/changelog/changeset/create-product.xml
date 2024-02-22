@@ -12,19 +12,31 @@
                 name VARCHAR,
                 description VARCHAR,
                 available BOOLEAN,
+                created_date TIMESTAMP,
+                last_modified_date TIMESTAMP,
+                created_by VARCHAR,
+                last_modified_by VARCHAR
             );
         </sql>
         <sql>
             CREATE TABLE product_categories
             (
                 product_id  BIGINT REFERENCES product (id),
-                category_id BIGINT REFERENCES category (id)
+                category_id BIGINT REFERENCES category (id),
+                created_date TIMESTAMP,
+                last_modified_date TIMESTAMP,
+                created_by VARCHAR,
+                last_modified_by VARCHAR
             );
         </sql>
         <sql>
             CREATE TABLE product_pictures(
                 product_id BIGINT REFERENCES product(id),
-                picture_id BIGIN REFERENCES picture(id)
+                picture_id BIGIN REFERENCES picture(id),
+                created_date TIMESTAMP,
+                last_modified_date TIMESTAMP,
+                created_by VARCHAR,
+                last_modified_by VARCHAR
             );
         </sql>
     </changeSet>

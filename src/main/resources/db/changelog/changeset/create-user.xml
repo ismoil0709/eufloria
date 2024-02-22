@@ -13,20 +13,32 @@
                 password VARCHAR,
                 phone_number VARCHAR,
                 status BOOLEAN,
-                basket_id BIGINT
+                basket_id BIGINT,
+                created_date TIMESTAMP,
+                last_modified_date TIMESTAMP,
+                created_by VARCHAR,
+                last_modified_by VARCHAR
             );
         </sql>
         <sql>
             CREATE TABLE user_orders(
                 user_id BIGINT REFERENCES user(id),
-                order_id BIGINT REFERENCES order(id)
+                order_id BIGINT REFERENCES order(id),
+                created_date TIMESTAMP,
+                last_modified_date TIMESTAMP,
+                created_by VARCHAR,
+                last_modified_by VARCHAR
             );
         </sql>
         <sql>
             CREATE TABLE user_addresses
             (
                 user_id    BIGINT REFERENCES user (id),
-                address_id BIGINT REFERENCES address (id)
+                address_id BIGINT REFERENCES address (id),
+                created_date TIMESTAMP,
+                last_modified_date TIMESTAMP,
+                created_by VARCHAR,
+                last_modified_by VARCHAR
             );
         </sql>
     </changeSet>
