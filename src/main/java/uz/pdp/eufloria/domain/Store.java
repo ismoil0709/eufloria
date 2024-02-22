@@ -21,7 +21,7 @@ import java.util.List;
 @Setter
 @Builder
 @Entity
-public class Store {
+public class Store extends Auditing{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

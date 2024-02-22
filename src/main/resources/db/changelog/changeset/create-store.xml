@@ -13,12 +13,20 @@
                 opens TIMESTAMP,
                 closes TIMESTAMP,
                 address_id BIGINT,
+                created_date TIMESTAMP,
+                last_modified_date TIMESTAMP,
+                created_by VARCHAR,
+                last_modified_by VARCHAR
             );
         </sql>
         <sql>
             CREATE TABLE store_products(
                 store_id BIGINT REFERENCES store(id),
-                product_id BIGINT REFERENCES product(id)
+                product_id BIGINT REFERENCES product(id),
+                created_date TIMESTAMP,
+                last_modified_date TIMESTAMP,
+                created_by VARCHAR,
+                last_modified_by VARCHAR
             );
         </sql>
     </changeSet>
