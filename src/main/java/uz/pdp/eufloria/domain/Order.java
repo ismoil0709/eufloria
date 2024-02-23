@@ -1,7 +1,21 @@
 package uz.pdp.eufloria.domain;
+import jakarta.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
 
-import jakarta.persistence.*;
-import lombok.*;
+
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Builder;
+
 import uz.pdp.eufloria.enums.OrderType;
 
 import java.time.LocalDate;

@@ -28,7 +28,7 @@ public class PaymentServiceImpl implements PaymentService {
         if (paymentSaveDto == null) {
             throw new NullOrEmptyException("PaymentSaveDto");
         }
-        Optional<Order> order = orderRepository.findById(paymentSaveDto.getOrderId());
+        final Order order = orderRepository.findById(paymentSaveDto.getOrderId()).orElseThrow(() -> new NotFoundException("order"));
         Payment payment = paymentRepository.save(Payment.builder()
                 .card(paymentSaveDto.getCard())
                 .amount(paymentSaveDto.getAmount())
