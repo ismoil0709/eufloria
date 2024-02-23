@@ -59,12 +59,10 @@ public class BasketServiceImpl implements BasketService {
                 () -> new NotFoundException("Basket")
         ));
     }
-
     @Override
     public List<BasketDto> getAll() {
         return basketRepository.findAll().stream().map(BasketDto::new).toList();
     }
-
     @Override
     public void addProductToBasket(Long productId,Long id) {
         Product product = productRepository.findById(productId).orElseThrow(
@@ -75,7 +73,6 @@ public class BasketServiceImpl implements BasketService {
         );
         basket.getProductList().add(product);
     }
-
     @Override
     public void removeProductFromBasket(Long productId,Long id) {
         Product product = productRepository.findById(productId).orElseThrow(
@@ -86,7 +83,6 @@ public class BasketServiceImpl implements BasketService {
         );
         basket.getProductList().remove(product);
     }
-
     @Override
     public void clearBasket(Long id) {
         Basket basket = basketRepository.findById(id).orElseThrow(

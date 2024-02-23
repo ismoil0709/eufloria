@@ -2,7 +2,6 @@ package uz.pdp.eufloria.service;
 
 import org.springframework.stereotype.Service;
 import uz.pdp.eufloria.dto.response.BasketDto;
-import uz.pdp.eufloria.dto.response.ProductDto;
 
 import java.util.List;
 
@@ -16,4 +15,5 @@ public interface BasketService {
     void addProductToBasket(Long productId,Long id);
     void removeProductFromBasket(Long productId,Long id);
     void clearBasket(Long id);
+
 }

@@ -5,3 +5,7 @@ spring:
   liquibase:
     change-log: db/changelog/master-changelog.xml
     enabled: true
+
+  swagger-ui:
+    path: /swagger
+    url: /swagger
