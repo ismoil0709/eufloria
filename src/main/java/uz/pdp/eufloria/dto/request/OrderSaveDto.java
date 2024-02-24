@@ -1,11 +1,9 @@
 package uz.pdp.eufloria.dto.request;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import uz.pdp.eufloria.enums.OrderType;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 @Getter

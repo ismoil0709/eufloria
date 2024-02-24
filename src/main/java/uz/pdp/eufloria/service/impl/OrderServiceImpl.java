@@ -1,7 +1,6 @@
 package uz.pdp.eufloria.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import uz.pdp.eufloria.domain.Address;
 import uz.pdp.eufloria.domain.Order;
 import uz.pdp.eufloria.dto.request.OrderSaveDto;
 import uz.pdp.eufloria.dto.response.OrderDto;

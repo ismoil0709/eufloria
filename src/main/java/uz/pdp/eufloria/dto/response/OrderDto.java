@@ -1,17 +1,13 @@
 package uz.pdp.eufloria.dto.response;
-
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.ManyToOne;
-import lombok.*;
-import uz.pdp.eufloria.domain.Address;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Builder;
 import uz.pdp.eufloria.domain.Order;
-import uz.pdp.eufloria.domain.User;
 import uz.pdp.eufloria.enums.OrderType;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
-
 @Getter
 @Setter
 @AllArgsConstructor

@@ -7,17 +7,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.EnumType;
-
-
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Builder;
-
 import uz.pdp.eufloria.enums.OrderType;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 
