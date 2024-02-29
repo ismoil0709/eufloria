@@ -55,17 +55,3 @@ public class CategoryController {
         return ResponseEntity.ok(Map.of("message", "Category successfully added to product"));
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
