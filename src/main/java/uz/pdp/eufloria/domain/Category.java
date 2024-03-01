@@ -17,7 +17,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-public class Category {
+public class Category extends Auditing{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

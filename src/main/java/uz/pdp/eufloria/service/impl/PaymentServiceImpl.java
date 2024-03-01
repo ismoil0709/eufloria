@@ -1,11 +1,11 @@
-package uz.pdp.eufloria.impl;
+package uz.pdp.eufloria.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import uz.pdp.eufloria.domain.Order;
 import uz.pdp.eufloria.domain.Payment;
-import uz.pdp.eufloria.dto.paymentDtos.PaymentDto;
-import uz.pdp.eufloria.dto.paymentDtos.PaymentSaveDto;
+import uz.pdp.eufloria.dto.request.PaymentSaveDto;
+import uz.pdp.eufloria.dto.response.PaymentDto;
 import uz.pdp.eufloria.exception.NotFoundException;
 import uz.pdp.eufloria.exception.NullOrEmptyException;
 import uz.pdp.eufloria.repository.PaymentRepository;
@@ -42,7 +42,7 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public List<PaymentDto> getAllPaymentsByCard(String card) {
-        return paymentRepository.getPaymentsByCard(card).stream().map(PaymentDto::new).toList();
+        return paymentRepository.findAllByCard(card).stream().map(PaymentDto::new).toList();
     }
 
     @Override
@@ -51,6 +51,16 @@ public class PaymentServiceImpl implements PaymentService {
             throw new NullOrEmptyException("id");
         }
         return new PaymentDto(paymentRepository.findById(id).orElseThrow(
+                () -> new NotFoundException("Payment")
+        ));
+    }
+
+    @Override
+    public PaymentDto getByOrder(Long id) {
+        if (id == null) {
+            throw new NullOrEmptyException("Id");
+        }
+        return new PaymentDto(paymentRepository.findByOrder(id).orElseThrow(
                 () -> new NotFoundException("Payment")
         ));
     }
