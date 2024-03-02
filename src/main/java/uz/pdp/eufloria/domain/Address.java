@@ -9,7 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.util.List;
 
 @Getter
@@ -30,4 +29,3 @@ public class Address extends Auditing{
     private List<User> user;
     private Double lon;
     private Double lat;
-}
