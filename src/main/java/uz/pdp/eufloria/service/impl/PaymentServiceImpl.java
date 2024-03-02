@@ -6,8 +6,11 @@ import uz.pdp.eufloria.domain.Order;
 import uz.pdp.eufloria.domain.Payment;
 import uz.pdp.eufloria.dto.request.PaymentSaveDto;
 import uz.pdp.eufloria.dto.response.PaymentDto;
+import uz.pdp.eufloria.dto.response.PaymentDto;
+import uz.pdp.eufloria.dto.request.PaymentSaveDto;
 import uz.pdp.eufloria.exception.NotFoundException;
 import uz.pdp.eufloria.exception.NullOrEmptyException;
+import uz.pdp.eufloria.repository.OrderRepository;
 import uz.pdp.eufloria.repository.PaymentRepository;
 import uz.pdp.eufloria.service.PaymentService;
 
@@ -25,7 +28,7 @@ public class PaymentServiceImpl implements PaymentService {
         if (paymentSaveDto == null) {
             throw new NullOrEmptyException("PaymentSaveDto");
         }
-        Optional<Order> order = orderRepository.findById(paymentSaveDto.getOrderId());
+        final Order order = orderRepository.findById(paymentSaveDto.getOrderId()).orElseThrow(() -> new NotFoundException("order"));
         Payment payment = paymentRepository.save(Payment.builder()
                 .card(paymentSaveDto.getCard())
                 .amount(paymentSaveDto.getAmount())
