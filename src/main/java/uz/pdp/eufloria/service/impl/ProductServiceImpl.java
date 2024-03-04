@@ -74,13 +74,4 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductDto> getAllByAvailable(Boolean available) {
         return productRepository.findAllByAvailable(available).stream().map(ProductDto::new).toList();
     }
-
-    @Override
-    public List<ProductDto> getAllByCategory(String... category) {
-        List<String> categories = Arrays.stream(category).toList();
-        List<Category> list = categories.stream().map(c -> categoryRepository.findByName(c).orElseThrow(
-                () -> new NotFoundException("Category")
-        )).toList();
-        return productRepository.findAllByCategory(list).stream().map(ProductDto::new).toList();
-    }
 }

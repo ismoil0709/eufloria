@@ -21,7 +21,6 @@ public class AddressServiceImpl implements AddressService {
         if (addressDto == null) {
             throw new NullOrEmptyException("AddressDto");
         }
-        Optional<Address> address1 = addressRepository.findById(addressDto.getId());
         Address address2 = addressRepository.save(Address.builder()
                 .country(addressDto.getCountry())
                 .city(addressDto.getCity())

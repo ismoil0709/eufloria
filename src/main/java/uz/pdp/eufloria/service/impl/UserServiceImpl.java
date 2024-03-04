@@ -3,6 +3,7 @@ package uz.pdp.eufloria.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import uz.pdp.eufloria.domain.Basket;
 import uz.pdp.eufloria.domain.User;
 import uz.pdp.eufloria.dto.request.UserLoginDto;
 import uz.pdp.eufloria.dto.request.UserRegisterDto;
@@ -38,6 +39,7 @@ public class UserServiceImpl implements UserService {
                 .password(passwordEncoder.encode(userRegisterDto.getPassword()))
                 .email(userRegisterDto.getEmail())
                 .phoneNumber(userRegisterDto.getPhoneNumber())
+                        .basket(new Basket())
                 .build()));
     }
 

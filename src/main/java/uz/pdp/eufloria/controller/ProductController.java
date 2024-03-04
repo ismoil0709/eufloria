@@ -49,8 +49,4 @@ public class ProductController {
     public ResponseEntity<?> getAllByAvailable(@PathVariable @NotNull Boolean available){
         return ResponseEntity.ok(productService.getAllByAvailable(available));
     }
-    @GetMapping("/all/category")
-    public ResponseEntity<?> getAllByCategory(@RequestParam @NotNull String... category){
-        return ResponseEntity.ok(productService.getAllByCategory(category));
-    }
 }

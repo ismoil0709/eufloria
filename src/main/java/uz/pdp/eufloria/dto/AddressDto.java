@@ -32,9 +32,9 @@ public class AddressDto {
     @NotNull @OneToOne
     private User user;
     @NotNull
-    private String lon;
+    private Double lon;
     @NotNull
-    private String lan;
+    private Double lat;
 
     public AddressDto (Address address){
         this.id = address.getId();
@@ -43,7 +43,7 @@ public class AddressDto {
         this.street = address.getStreet();
         this.district = address.getDistrict();
         this.home = address.getHome();
-        this.lan = address.getLan();
+        this.lat = address.getLat();
         this.lon = address.getLon();
     }
 }

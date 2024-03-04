@@ -36,7 +36,7 @@ public class BasketServiceImpl implements BasketService {
         Basket basket = basketRepository.findById(id).orElseThrow(
                 () -> new NotFoundException("Basket")
         );
-        basket.getProductList().add(product);
+        basket.getProducts().add(product);
     }
     @Override
     public void removeProductFromBasket(Long productId,Long id) {
@@ -46,13 +46,13 @@ public class BasketServiceImpl implements BasketService {
         Basket basket = basketRepository.findById(id).orElseThrow(
                 () -> new NotFoundException("Basket")
         );
-        basket.getProductList().remove(product);
+        basket.getProducts().remove(product);
     }
     @Override
     public void clearBasket(Long id) {
         Basket basket = basketRepository.findById(id).orElseThrow(
                 () -> new NotFoundException("Basket")
         );
-        basket.getProductList().clear();
+        basket.getProducts().clear();
     }
 }

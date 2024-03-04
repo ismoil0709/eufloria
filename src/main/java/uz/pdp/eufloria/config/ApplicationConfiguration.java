@@ -9,14 +9,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Optional;
 
-@Configuration
-public class ApplicationConfiguration {
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
+    @Configuration
+    public class ApplicationConfiguration {
+        @Bean
+        public PasswordEncoder passwordEncoder(){
+            return new BCryptPasswordEncoder();
+        }
+        @Bean
+        public AuditorAware<String> auditorAware(){
+            return ()-> Optional.ofNullable(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
+        }
     }
-    @Bean
-    public AuditorAware<String> auditorAware(){
-        return ()-> Optional.of(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
-    }
-}

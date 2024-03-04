@@ -3,15 +3,15 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd"
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd"
         objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
     <changeSet id="6" author="behzod">
         <sql>
             CREATE TABLE store(
-                id SERIAL PRIMARY KEY ,
+                id BIGSERIAL PRIMARY KEY ,
                 name VARCHAR,
-                opens TIMESTAMP,
-                closes TIMESTAMP,
+                opens TIME,
+                closes TIME,
                 address_id BIGINT,
                 created_date TIMESTAMP,
                 last_modified_date TIMESTAMP,
@@ -22,7 +22,7 @@
         <sql>
             CREATE TABLE store_products(
                 store_id BIGINT REFERENCES store(id),
-                product_id BIGINT REFERENCES product(id),
+                products_id BIGINT REFERENCES product(id),
                 created_date TIMESTAMP,
                 last_modified_date TIMESTAMP,
                 created_by VARCHAR,

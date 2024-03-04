@@ -18,6 +18,6 @@ public class BasketDto {
     private List<Long> productIdList;
     public BasketDto(Basket basket){
         this.id = basket.getId();
-        this.productIdList = basket.getProductList().stream().map(Product::getId).toList();
+        this.productIdList = basket.getProducts().stream().map(Product::getId).toList();
     }
 }
