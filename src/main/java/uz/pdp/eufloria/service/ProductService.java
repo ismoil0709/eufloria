@@ -14,5 +14,4 @@ public interface ProductService {
     ProductDto getById(Long id);
     List<ProductDto> getAll();
     List<ProductDto> getAllByAvailable(Boolean available);
-    List<ProductDto> getAllByCategory(String... category);
 }

@@ -1,14 +1,6 @@
 package uz.pdp.eufloria.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -38,6 +30,6 @@ public class User extends Auditing{
     private List<Address> address;
     @OneToMany(fetch = FetchType.EAGER)
     private List<Order> orders;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Basket basket;
 }

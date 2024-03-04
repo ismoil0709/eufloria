@@ -3,12 +3,12 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd"
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd"
         objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
     <changeSet id="5" author="ismoil_0709">
         <sql>
             CREATE TABLE product(
-                id SERIAL PRIMARY KEY ,
+                id BIGSERIAL PRIMARY KEY ,
                 name VARCHAR,
                 description VARCHAR,
                 available BOOLEAN,
@@ -19,7 +19,7 @@
             );
         </sql>
         <sql>
-            CREATE TABLE product_categories
+            CREATE TABLE product_category
             (
                 product_id  BIGINT REFERENCES product (id),
                 category_id BIGINT REFERENCES category (id),
@@ -32,7 +32,7 @@
         <sql>
             CREATE TABLE product_pictures(
                 product_id BIGINT REFERENCES product(id),
-                picture_id BIGIN REFERENCES picture(id),
+                pictures_id BIGINT REFERENCES picture(id),
                 created_date TIMESTAMP,
                 last_modified_date TIMESTAMP,
                 created_by VARCHAR,

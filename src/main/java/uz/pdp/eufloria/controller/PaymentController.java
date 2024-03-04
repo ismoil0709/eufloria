@@ -24,7 +24,7 @@ public class PaymentController {
         return ResponseEntity.ok(paymentService.save(paymentSaveDto));
     }
 
-    @PostMapping("/get-all/by/card")
+    @PostMapping("/all/card")
     public ResponseEntity<?> getAllPaymentsByCard(@RequestBody String card) {
         return ResponseEntity.ok(paymentService.getAllPaymentsByCard(card));
     }
@@ -35,17 +35,17 @@ public class PaymentController {
     }
 
 
-    @GetMapping("/get-by/order/{id}")
+    @GetMapping("/order/{id}")
     public ResponseEntity<?> getByOrder(@PathVariable Long id) {
         return ResponseEntity.ok(paymentService.getByOrder(id));
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<?> getAll() {
         return ResponseEntity.ok(paymentService.getAllPayments());
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         return ResponseEntity.ok(paymentService.delete(id));
     }

@@ -2,24 +2,24 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+                       https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <changeSet id="0" author="ali-2204">
         <sql>
             CREATE TABLE address
             (
-                id       SERIAL PRIMARY KEY,
-                country  VARCHAR,
-                city     VARCHAR,
-                district VARCHAR,
-                street   VARCHAR,
-                home     VARCHAR,
-                lon      DOUBLE PRECISION,
-                lat      DOUBLE PRECISION,
-                created_date TIMESTAMP,
+                id                 BIGSERIAL PRIMARY KEY,
+                country            VARCHAR,
+                city               VARCHAR,
+                district           VARCHAR,
+                street             VARCHAR,
+                home               VARCHAR,
+                lon                DOUBLE PRECISION,
+                lat                DOUBLE PRECISION,
+                created_date       TIMESTAMP,
                 last_modified_date TIMESTAMP,
-                created_by VARCHAR,
-                last_modified_by VARCHAR
+                created_by         VARCHAR,
+                last_modified_by   VARCHAR
             );
         </sql>
     </changeSet>

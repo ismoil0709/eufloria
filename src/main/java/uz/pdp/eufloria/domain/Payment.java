@@ -21,7 +21,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "payment")
 public class Payment extends Auditing{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

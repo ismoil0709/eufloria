@@ -3,18 +3,20 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd"
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd"
         objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
     <changeSet id="2" author="sardor">
         <sql>
             CREATE TABLE orders
             (
-                id            SERIAL PRIMARY KEY,
+                id            BIGSERIAL PRIMARY KEY,
                 total_price   DOUBLE PRECISION,
                 date          DATE,
                 time          TIME,
                 order_type    VARCHAR(255),
-                shipping_cost DOUBLE PRECISION,
+                shipping_coast DOUBLE PRECISION,
+                address_id BIGINT,
+                user_id BIGINT,
                 created_date TIMESTAMP,
                 last_modified_date TIMESTAMP,
                 created_by VARCHAR,

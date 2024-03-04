@@ -23,18 +23,17 @@ public class AddressControler {
     public ResponseEntity<?> save(@RequestBody @Valid AddressDto addressDto) {
         return ResponseEntity.ok(addressService.save(addressDto));
     }
-
-    @GetMapping("/get-all")
+    @GetMapping("/all")
     public ResponseEntity<?> getAllAddress(){
         return ResponseEntity.ok(addressService.getAllAddresss());
     }
 
-    @GetMapping("get/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable Long id){
         return ResponseEntity.ok(addressService.getById(id));
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id){
         return ResponseEntity.ok(addressService.delete(id));
     }

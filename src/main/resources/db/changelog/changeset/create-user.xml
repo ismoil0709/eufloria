@@ -7,7 +7,7 @@
     <changeSet id="7" author="eeslambec">
         <sql>
             CREATE TABLE users(
-                id SERIAL PRIMARY KEY ,
+                id BIGSERIAL PRIMARY KEY ,
                 username VARCHAR,
                 email VARCHAR,
                 password VARCHAR,
@@ -21,9 +21,9 @@
             );
         </sql>
         <sql>
-            CREATE TABLE user_orders(
-                user_id BIGINT REFERENCES user(id),
-                order_id BIGINT REFERENCES order(id),
+            CREATE TABLE users_orders(
+                user_id BIGINT REFERENCES users(id),
+                orders_id BIGINT REFERENCES orders(id),
                 created_date TIMESTAMP,
                 last_modified_date TIMESTAMP,
                 created_by VARCHAR,
@@ -33,7 +33,7 @@
         <sql>
             CREATE TABLE user_addresses
             (
-                user_id    BIGINT REFERENCES user (id),
+                user_id    BIGINT REFERENCES users(id),
                 address_id BIGINT REFERENCES address (id),
                 created_date TIMESTAMP,
                 last_modified_date TIMESTAMP,

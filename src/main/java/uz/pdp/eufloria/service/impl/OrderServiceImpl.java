@@ -5,7 +5,9 @@ import uz.pdp.eufloria.domain.Order;
 import uz.pdp.eufloria.dto.request.OrderSaveDto;
 import uz.pdp.eufloria.dto.response.OrderDto;
 import uz.pdp.eufloria.exception.NotFoundException;
+import uz.pdp.eufloria.repository.AddressRepository;
 import uz.pdp.eufloria.repository.OrderRepository;
+import uz.pdp.eufloria.repository.UserRepository;
 import uz.pdp.eufloria.service.OrderService;
 
 import java.util.List;
@@ -28,8 +30,12 @@ public class OrderServiceImpl implements OrderService {
                 .shippingCoast(orderSaveDto.getShippingCoast())
                 .totalPrice(orderSaveDto.getTotalPrice())
                 .orderType(orderSaveDto.getOrderType())
-                .user(userRepository.findById(orderSaveDto.getUserId()))
-                .address(addressRepository.findById(orderSaveDto.getAddressId()))
+                .user(userRepository.findById(orderSaveDto.getUserId()).orElseThrow(
+                        ()->new NotFoundException("User")
+                ))
+                .address(addressRepository.findById(orderSaveDto.getAddressId()).orElseThrow(
+                        ()->new NotFoundException("Address")
+                ))
                 .build()));
     }
 
