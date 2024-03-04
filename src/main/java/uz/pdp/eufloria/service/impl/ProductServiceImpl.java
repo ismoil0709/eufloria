@@ -9,19 +9,16 @@ import uz.pdp.eufloria.dto.request.ProductCreateDto;
 import uz.pdp.eufloria.dto.response.ProductDto;
 import uz.pdp.eufloria.exception.NotFoundException;
 import uz.pdp.eufloria.exception.NullOrEmptyException;
-import uz.pdp.eufloria.repository.CategoryRepository;
 import uz.pdp.eufloria.repository.ProductRepository;
 import uz.pdp.eufloria.service.ProductService;
 import uz.pdp.eufloria.util.Validator;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
-    private final CategoryRepository categoryRepository;
     @Override
     public ProductDto save(ProductCreateDto productCreateDto) {
         if (productCreateDto.getCategories().isEmpty())

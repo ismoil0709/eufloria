@@ -1,7 +1,6 @@
 package uz.pdp.eufloria.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uz.pdp.eufloria.service.BasketService;
@@ -20,7 +19,7 @@ public class BasketController {
         return ResponseEntity.ok(Map.of("message", "Product successfully added to the basket"));
     }
 
-    @PostMapping("/clear")
+    @PostMapping("/clear/{id}")
     public ResponseEntity<?> clearBasket(@PathVariable Long id){
         basketService.clearBasket(id);
         return ResponseEntity.ok(Map.of("message", "Basket successfully cleared"));

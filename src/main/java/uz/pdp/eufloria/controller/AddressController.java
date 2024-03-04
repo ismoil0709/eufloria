@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import uz.pdp.eufloria.dto.AddressDto;
+import uz.pdp.eufloria.dto.response.AddressDto;
 import uz.pdp.eufloria.service.AddressService;
 
 @RestController
 @RequestMapping("/api/v1/address")
 @RequiredArgsConstructor
-public class AddressControler {
+public class AddressController {
     private final AddressService addressService;
 
     @PostMapping("/save")

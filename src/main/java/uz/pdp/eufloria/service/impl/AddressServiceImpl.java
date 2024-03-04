@@ -3,7 +3,7 @@ package uz.pdp.eufloria.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import uz.pdp.eufloria.domain.Address;
-import uz.pdp.eufloria.dto.AddressDto;
+import uz.pdp.eufloria.dto.response.AddressDto;
 import uz.pdp.eufloria.exception.NotFoundException;
 import uz.pdp.eufloria.exception.NullOrEmptyException;
 import uz.pdp.eufloria.repository.AddressRepository;

@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Builder;
 import uz.pdp.eufloria.domain.Order;
-import uz.pdp.eufloria.enums.OrderType;
+import uz.pdp.eufloria.domain.enums.OrderType;
 import java.time.LocalDate;
 import java.time.LocalTime;
 @Getter

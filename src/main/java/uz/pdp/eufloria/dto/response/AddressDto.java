@@ -1,4 +1,4 @@
-package uz.pdp.eufloria.dto;
+package uz.pdp.eufloria.dto.response;
 
 import uz.pdp.eufloria.domain.Address;
 import jakarta.persistence.OneToOne;

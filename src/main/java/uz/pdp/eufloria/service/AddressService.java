@@ -1,8 +1,7 @@
 package uz.pdp.eufloria.service;
 
 import org.springframework.stereotype.Service;
-import uz.pdp.eufloria.domain.Address;
-import uz.pdp.eufloria.dto.AddressDto;
+import uz.pdp.eufloria.dto.response.AddressDto;
 
 import java.util.List;
 
