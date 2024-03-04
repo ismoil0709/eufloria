@@ -19,15 +19,15 @@ public class OrderController {
         return ResponseEntity.ok(orderService.orderSave(orderSaveDto));
 
     }
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable Long id){
         return ResponseEntity.ok(orderService.deleteOrder(id));
     }
-    @GetMapping("/find/by/{userId}")
+    @GetMapping("/userId/{userId}")
     public ResponseEntity<List<OrderDto>> findByUserId(@PathVariable Long userId){
         return ResponseEntity.ok(orderService.findByUserId(userId));
     }
-    @GetMapping("/find/by/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<List<OrderDto>>findByOrderId(@PathVariable Long id){
         return ResponseEntity.ok(orderService.findByOrderId(id));
     }
